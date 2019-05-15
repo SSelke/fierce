@@ -8,7 +8,7 @@ import reducers from '../reducers';
 const saveToLocalStorage = (state) => {
     try {
         const serializeState = JSON.stringify(state);
-        localStorage.setItem('state', serializeState);
+        localStorage.setItem('fierce_state', serializeState);
     } catch (error) {
         throw new Error(error, 'State was not saved in Local Storage');
     }
@@ -18,7 +18,7 @@ const saveToLocalStorage = (state) => {
 
 const loadFromLocalStorage = () => {
     try {
-        const serializedState = localStorage.getItem('state');
+        const serializedState = localStorage.getItem('fierce_state');
         if (serializedState === null ) return undefined;
         return JSON.parse(serializedState);
     } catch (error) {
