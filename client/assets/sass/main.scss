@@ -1,0 +1,45 @@
+/* 
+    This is just a template: Change if you would like
+    NOT RESPONSIVE // DESKTOP ONLY!!!
+*/
+
+
+//Import order!!!!
+/*
+    Variables
+    Mixins
+    Components
+    Pages
+*/
+
+@import './variables/index.scss';
+@import './mixins/index.scss';
+@import './components/index';
+@import './pages/index.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+
+body {
+    background: $secondary;
+}
+
+a {
+    text-decoration: none;
+    color: $black;
+
+    @include hocus;
+}
+
+.page {
+    height: calc(100vh - 60px);
+    width: 100%;
+}

@@ -1,0 +1,13 @@
+.header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100vw;
+    height: 60px;
+    background: $primary;
+    color: $white;
+
+    a {
+        color: $white !important;
+    }
+}

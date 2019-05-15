@@ -1,0 +1,12 @@
+@import './colors';
+
+.is-invalid {
+    box-sizing: border-box;
+    border: 2px solid $danger !important;
+}
+
+.invalid-feedback {
+    font-size: 1.05rem;
+    color: $danger;
+    margin-bottom: 20px;
+}
