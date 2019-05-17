@@ -1,19 +1,6 @@
-/* 
-    This is just a template: Change if you would like
-    NOT RESPONSIVE // DESKTOP ONLY!!!
-*/
-
-
-//Import order!!!!
-/*
-    Variables
-    Mixins
-    Components
-    Pages
-*/
-
-@import './variables/index.scss';
 @import './mixins/index.scss';
+@import './variables/index.scss';
+@import './misc/index.scss';
 @import './components/index';
 @import './pages/index.scss';
 
@@ -22,24 +9,46 @@
     padding: 0;
 }
 
-html {
+html,
+body,
+#root {
+    position: absolute;
     height: 100%;
     width: 100%;
 }
 
 
 body {
-    background: $secondary;
+    background: $ghost-white;
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: .12rem;
 }
 
-a {
-    text-decoration: none;
-    color: $black;
+.wrapper {
+    height: 100%;
+    width: 100%;
+    transform: translateX(0);
+    transition: all 0.3s ease;
+}
 
-    @include hocus;
+.wrapper-open-left {
+    transform: translateX(200px);
+}
+
+.wrapper-open-right {
+    transform: translateX(-260px);
+}
+
+.main-container {
+    height: 100%;
+    width: 100vw;
+    z-index: 100;
+}
+
+.blur-main {
+    opacity: 0.5;
 }
 
 .page {
     height: calc(100vh - 60px);
-    width: 100%;
 }

@@ -1,0 +1,114 @@
+.bg-primary {
+    background: $primary;
+}
+
+.bg-secondary {
+    background: $secondary;
+}
+
+.bg-warning {
+    background: $warning;
+}
+
+.bg-danger {
+    background: $danger;
+}
+
+.outlined-primary {
+    @include outlined($primary);
+}
+
+.outlined-secondary {
+    @include outlined($secondary);
+}
+
+.outlined-warning {
+    @include outlined($warning);
+}
+
+.outlined-danger {
+    @include outlined($danger);
+}
+
+.outlined-black {
+    @include outlined($black);
+}
+
+.outlined-dark {
+    @include outlined($dark);
+}
+
+.rounded {
+    border-radius: 5px;
+}
+
+.rounded-small {
+    @include outlined($primary);
+    min-height: 40px;
+    min-width: 60px;
+    background: transparent;
+    border-radius: 50px !important;
+    font-size: 0.9rem !important;
+}
+
+.rounded-medium {
+    @include outlined($primary);
+    height: 40px;
+    width: 80px;
+    background: transparent;
+    border-radius: 50px !important;
+}
+
+.rounded-large {
+    @include outlined($primary);
+    height: 50px;
+    width: 120px;
+    background: transparent;
+    border-radius: 50px !important;
+}
+
+.rounded-xlarge {
+    @include outlined($primary);
+    height: 60px;
+    width: 150px;
+    background: transparent;
+    border-radius: 50px !important;
+}
+
+.small {
+    width: 60px;
+}
+
+.medium {
+    width: 80px;
+}
+
+.large {
+    width: 100px;
+}
+
+.xlarge {
+    width: 120px;
+    height: 60px;
+}
+
+.view-cart-button {
+    border: 3px solid $black;
+
+    @include hocus {
+        background: rgba(25, 181, 254, 0.3);
+    }
+}
+
+.checkout-button {
+    border: none;
+    background: $black !important;
+
+    a {
+        color: $white !important;
+    }
+
+    @include hocus {
+        background: $dark !important;
+    }
+}

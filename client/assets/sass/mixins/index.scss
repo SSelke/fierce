@@ -1,6 +1,19 @@
 @mixin hocus {
+
     &:hover,
     &:focus {
         @content;
+    }
+}
+
+@mixin outlined($color) {
+    border: 2px solid $color;
+    background-color: transparent;
+    color: $color;
+    transition: 0.1s all;
+
+    &:hover {
+        background: $color;
+        color: white;
     }
 }

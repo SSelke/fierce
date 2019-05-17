@@ -1,4 +1,6 @@
 @import './header';
+@import './menu';
+@import './cart';
 
 // HERE IS WHERE HTML ELEMENTS WILL HAVE GLOBAL STYLES
 
@@ -28,7 +30,7 @@ select {
     height: 40px;
 }
 
-button {
+.button {
     height: 45px;
     width: 100%;
     color: $white;

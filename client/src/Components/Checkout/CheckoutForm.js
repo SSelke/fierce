@@ -3,11 +3,6 @@ import { CardElement, injectStripe } from 'react-stripe-elements';
 
 const CheckoutForm = (props) => {
 
-    /*
-    State for Billing info / errors that will be send and received
-    By the API calling Stripe.create.charge()
-    */
-
     const [info, setInfo] = useState({
         firstName: '',
         lastName: '',
@@ -33,13 +28,6 @@ const CheckoutForm = (props) => {
             [prop]: null
         })
     }
-
-
-    /* 
-        This creates a 'Token' which will tokenize the data
-        for PCI compliance. 
-        Then the token is sent to the backend & accepted or rejected
-    */
 
     const handleSubmit = async (ev) => {
         ev.preventDefault();
