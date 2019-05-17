@@ -1,13 +1,42 @@
 .header {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    width: 100vw;
+    margin: 0 auto;
+    width: 90vw;
     height: 60px;
-    background: $primary;
-    color: $white;
+    background: $ghost-white;
+    border-bottom: 3px solid $black;
 
     a {
-        color: $white !important;
+        color: $black !important;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    button {
+        color: $black !important;
+        font-size: 1.2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: none;
+        border: none;
+
+        @include hocus {
+            outline: 0;
+        }
+
+        div {
+            margin-right: 10px;
+        }
+
+        span {
+            width: 25px;
+            height: 2px;
+            background-color: black;
+            margin: 6px 0;
+            display: block;
+        }
     }
 }

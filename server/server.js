@@ -18,8 +18,9 @@ app.use('/admin', adminRouter);
 app.use('/api', apiRouter);
 
 app.get("*", (req, res) => {
-    // NEED TO DETERMIN IF IN DEV OR PROD
-    res.sendFile(path.join(__dirname, '/public', 'index.html'));
+    if (process.env.NODE_ENV === 'production') {
+        res.sendFile(path.join(__dirname, '/public', 'index.html'));
+    }
 });
 
 const PORT = process.env.PORT || 5600;

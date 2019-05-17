@@ -32,10 +32,10 @@ const persistedState = loadFromLocalStorage();
 
 const store = createStore(
     reducers,
-    persistedState,
+   
     composeWithDevTools(applyMiddleware(thunk))
 );
 
-store.subscribe( () => saveToLocalStorage(store.getState()));
+store.subscribe(() => saveToLocalStorage(store.getState()));
 
 export default store;
