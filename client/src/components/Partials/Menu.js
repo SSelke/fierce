@@ -13,6 +13,12 @@ const Menu = () => {
                     <li><Link to="/">Sale</Link></li>
                     <li><Link to="/">Wearables</Link></li>
                 </ul>
+                <h4 className="mt-5">Help</h4>
+                <ul className="menu-nav">
+                    <li><Link>Contact</Link></li>
+                    <li><Link>Shipping / Returning</Link></li>
+                    <li><Link>Privacy Disclosure</Link></li>
+                </ul>
             </nav>
         </div>
     );

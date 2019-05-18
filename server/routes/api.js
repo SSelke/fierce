@@ -3,6 +3,7 @@ const router = express.Router();
 const sendMail = require('../middleware/mail.js');
 const config = require('../config/keys');
 const validatePayment = require('../validation/paymentValidation');
+const parser = require('../middleware/cloudinary');
 
 const stripe = require("stripe")(config.STRIPE_API_KEY_SECRET);
 
@@ -37,6 +38,14 @@ router.post("/charge", async (req, res) => {
     } catch (err) {
         res.status(500).end();
     }
+});
+
+router.post('/images', parser.single('image'), (req, res) => {
+    const image = {};
+    image.url = req.file.url;
+    image.id = req.file.public_id;
+
+    console.log(req.file);
 });
 
 module.exports = router;
