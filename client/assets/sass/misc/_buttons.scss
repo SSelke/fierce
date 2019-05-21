@@ -1,3 +1,7 @@
+button {
+    outline: 0;
+}
+
 .bg-primary {
     background: $primary;
 }
@@ -77,14 +81,17 @@
 
 .small {
     width: 60px;
+    height: 40px;
 }
 
 .medium {
     width: 80px;
+    height: 40px;
 }
 
 .large {
     width: 100px;
+    height: 40px;
 }
 
 .xlarge {
@@ -111,4 +118,34 @@
     @include hocus {
         background: $dark !important;
     }
+}
+
+.divider {
+    margin: 30px 0px;
+    border-bottom: 4px solid $black;
+}
+
+.close {
+    background: $dark;
+    width: 40px;
+    height: 40px;
+    position: relative;
+}
+
+.close:after {
+    content: '';
+    height: 40px;
+    border-left: 2px solid #fff;
+    position: absolute;
+    transform: rotate(45deg);
+    left: 19px;
+}
+
+.close:before {
+    content: '';
+    height: 40px;
+    border-left: 2px solid #fff;
+    position: absolute;
+    transform: rotate(-45deg);
+    left: 19px;
 }

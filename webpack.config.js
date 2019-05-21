@@ -10,7 +10,7 @@ module.exports = {
         path.resolve(__dirname, './client/src/index.js')
     ],
     output: {
-        path: path.resolve(__dirname, "server/public/bundle"),
+        path: path.resolve(__dirname, "./server/public/bundle"),
         filename: 'bundle.js'
     },
     module: {
@@ -78,7 +78,7 @@ module.exports = {
         contentBase: './',
         proxy: {
             "/api": "http://localhost:5600",
-            "/admin": "http://localhost:5600"
+            "/images": "http://localhost:5600"
         }
     },
 }

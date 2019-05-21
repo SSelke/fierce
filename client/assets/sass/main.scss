@@ -41,16 +41,20 @@ body {
 .wrapper {
     height: 100%;
     width: 100%;
-    transform: translateX(0);
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
 
 .wrapper-open-left {
-    transform: translateX(200px);
+    -webkit-transform: translateX(240px);
+            transform: translateX(240px);
 }
 
 .wrapper-open-right {
-    transform: translateX(-260px);
+    -webkit-transform: translateX(-260px);
+            transform: translateX(-260px);
 }
 
 .main-container {
@@ -67,4 +71,5 @@ body {
     height: calc(100vh - 60px);
     width: 90vw;
     margin: 0 auto;
+    background: $ghost-white;
 }

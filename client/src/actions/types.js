@@ -1,2 +1,3 @@
 export const SET_MENU_CLOSED = 'SET_MENU_CLOSED';
 export const SET_CART_CLOSED = 'SET_CART_CLOSED';
+export const SET_PRODUCTS = 'SET_PRODUCTS';
