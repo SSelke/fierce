@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route, withRouter, Router, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { getProducts } from '../actions/products';
 import { handleHeaderClick } from '../actions/ui_actions';
 import { ProtectedRoute } from './Auth/ProtectedRoute';
 import Header from './Partials/Header';
@@ -25,7 +26,7 @@ const handleAuthentication = ({ location }) => {
     }
 }
 
-class App extends Component {
+class AppRouter extends Component {
 
     handlePageClick = () => {
         const { isCartClosed, isMenuClosed } = this.props;
@@ -68,6 +69,6 @@ class App extends Component {
     }
 }
 
-const mapStateToProps = (state) => ({isMenuClosed: state.headerState.isMenuClosed, isCartClosed: state.headerState.isCartClosed});
+const mapStateToProps = (state) => ({isMenuClosed: state.headerState.isMenuClosed, isCartClosed: state.headerState.isCartClosed, products: state.products});
 
-export default withRouter(connect(mapStateToProps, { handleHeaderClick })(App));
+export default withRouter(connect(mapStateToProps, { handleHeaderClick, getProducts })(AppRouter));

@@ -26,7 +26,7 @@ class ProductCard extends Component {
     }
 
     deleteProduct = () => {
-        this.props.deleteProduct(this.props.product);
+        this.props.deleteProduct(this.props.product, this.props.history);
         this.setState({ redirect: true, redirectPath: '/admin' });
     }
 
@@ -34,7 +34,8 @@ class ProductCard extends Component {
 
         const { product } = this.props;
         const { redirect, redirectPath } = this.state;
-        if (redirect) return <Redirect to={redirectPath} />;
+        // if (redirect) return <Redirect to={redirectPath} />;
+        // console.log(product);
         return (
             <div className="product-card mt-2">
                 <div className="product-card-image">

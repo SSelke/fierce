@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import axios from 'axios';
 import _ from 'lodash';
 import ProductCard from '../Product/ProductCard';
@@ -11,19 +11,6 @@ class Admin extends Component {
         sortedProducts: [],
         inputNumber: 0.00,
         show: false
-    }
-
-    componentDidMount() {
-        this.getProducts();
-    }
-
-    getProducts = async () => {
-        try {
-            const response = await axios.get('/api/products');
-            this.setState({products: response.data, sortedProducts: response.data});
-        } catch (error) {
-
-        }
     }
 
     handleSelectChange = async (event) => {
@@ -50,7 +37,7 @@ class Admin extends Component {
 
     renderRow = (chunk) => {
         return <div className="product-row" key={`${Math.random()}`}>
-            {chunk.map((product) => <ProductCard product={product} auth={this.props.auth}/>)}
+            {chunk.map((product) => <ProductCard product={product} auth={this.props.auth} {...this.props}/>)}
         </div>;
     }
 
@@ -79,8 +66,8 @@ class Admin extends Component {
         const { getIdToken } = this.props.auth;
         const API_URL = 'http://localhost:5600/api';
         const headers = { 'Authorization': `Bearer ${getIdToken()}` }
-        axios.post(`${API_URL}/product`, data, { headers })
-            .then(response => this.setState({ message: response.data.message }))
+        axios.post(`http://localhost:5600/api/product`, data, { headers })
+            .then(response => this.setState({ message: response.data.message, show: false }))
             .catch(error => this.setState({ message: error.message }));
     }
 
@@ -93,7 +80,7 @@ class Admin extends Component {
                     <div className="new-product-form">
                         <div className="product-form-close" onClick={() => this.setState({show: false})}><div className="close"></div></div>
                         <h3 className="my-2">New Product</h3>
-                        <form method="post" action="/api/product" encType="multipart/form-data" onSubmit={() => this.handleSubmit(event)}>
+                        <form method="POST" action="/api/product" encType="multipart/form-data" onSubmit={() => this.handleSubmit(event)}>
                             <div>
                                 <label htmlFor="product-name">Product Name</label>
                                 <input type="text" name="name" maxLength="50" id="product-name" required/>
@@ -153,4 +140,6 @@ class Admin extends Component {
     }
 }
 
-export default Admin;
+const mapStateToProps = (state) => ({products: state.products});
+
+export default connect(mapStateToProps, null)(Admin);

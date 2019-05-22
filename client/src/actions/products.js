@@ -1,27 +1,28 @@
-import {
-    SET_PRODUCTS
-} from './types';
+import { SET_PRODUCTS } from './types';
 import axios from 'axios';
 
 export const setProductToBeEdited = (product) => dispatch => {
     dispatch({
-        action: SET_PRODUCT_TO_BE_EDITED,
+        type: SET_PRODUCT_TO_BE_EDITED,
         payload: product
     });
+    dispatch(getProducts());
 }
 
-export const deleteProduct = (product) => dispatch => {
-    axios.delete('/api/product', { data: { id: product._id } })
+export const deleteProduct = (product, history) => dispatch => {
+    axios.post('/api/product/delete', { data: { id: product._id } })
         .then(() => {
-            dispatch(updateProducts());
+            console.log('hit');
+            dispatch(getProducts());
         })
 }
 
-export const updateProducts = () => dispatch => {
+export const getProducts = () => dispatch => {
+    console.log('hit');
     axios.get('/api/products')
          .then(response => {
              dispatch({
-                 action: SET_PRODUCTS,
+                 type: SET_PRODUCTS,
                  payload: response.data
              });
          })

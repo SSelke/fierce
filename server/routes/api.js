@@ -53,18 +53,13 @@ router.get('/products', (req, res) => {
     })
 });
 
-router.delete('/product', (req, res) => {
-    Product.deleteOne({_id: req.body.id}, (error, response) => {
-        console.log(response);
-    });
-});
-
-router.post('/product', secured, parser.single('image'), (req, res) => {
+router.post('/product', parser.single('image'), (req, res) => {
     const image = {};
     if (req.file) {
         image.url = req.file.url;
         image.id = req.file.public_id;
     }
+    
     Product.findOne({
         skew: req.body.skew
     }).then( product => {
@@ -83,7 +78,6 @@ router.post('/product', secured, parser.single('image'), (req, res) => {
                 skew: req.body.skew,
                 size: req.body.size || null
             });
-            console.log(newProduct);
             newProduct.save()
                       .then( product => {
                           res.sendStatus(200).end();
@@ -91,5 +85,11 @@ router.post('/product', secured, parser.single('image'), (req, res) => {
         }
     })
 });
+
+// router.delete('/product/delete', (req, res) => {
+//     console.log(req);
+//     Product.deleteOne({ _id: req.body.id }, (error, response) => {
+//     });
+// });
 
 module.exports = router;
